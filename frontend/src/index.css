@@ -1,68 +1,89 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+  --color-vintage-black: #0a0a0a;
+  --color-vintage-white: #f5f5f5;
+  --color-vintage-gray-100: #1a1a1a;
+  --color-vintage-gray-200: #2e2e2e;
+  --color-vintage-gray-300: #4a4a4a;
+  --color-vintage-gray-400: #6b6b6b;
+  --color-vintage-gray-500: #888888;
+  --color-vintage-gray-600: #b4b4b4;
+  --color-vintage-gray-700: #d1d1d1;
+  --color-vintage-gray-800: #e8e8e8;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  --font-family-mono: 'Courier New', monospace;
+  --font-family-serif: Georgia, serif;
+}
+
+body {
+  background-color: var(--color-vintage-black);
+  color: var(--color-vintage-white);
+  font-family: var(--font-family-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-serif);
+  font-weight: normal;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Vintage Button Styles */
+.btn-vintage {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--color-vintage-white);
+  background-color: transparent;
+  color: var(--color-vintage-white);
+  font-family: var(--font-family-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  transition: all 200ms;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.btn-vintage:hover {
+  background-color: var(--color-vintage-white);
+  color: var(--color-vintage-black);
+}
+
+.btn-vintage-inverse {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--color-vintage-white);
+  background-color: var(--color-vintage-white);
+  color: var(--color-vintage-black);
+  font-family: var(--font-family-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.btn-vintage-inverse:hover {
+  background-color: transparent;
+  color: var(--color-vintage-white);
+}
+
+/* Vintage Card */
+.card-vintage {
+  border: 2px solid var(--color-vintage-white);
+  background-color: var(--color-vintage-black);
+  padding: 1.5rem;
+}
+
+/* Vintage Input */
+.input-vintage {
+  border: 2px solid var(--color-vintage-gray-400);
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.875rem;
+  color: var(--color-vintage-white);
+}
+
+.input-vintage:focus {
+  border-color: var(--color-vintage-white);
+  outline: none;
 }
