@@ -65,7 +65,9 @@ const Step3Review = ({ campaignData, onBack, onLaunch }) => {
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Type:</span>
-            <span>{campaignData.type === 'CPM' ? '$ CPM (Cost Per 1000 Impressions)' : '↗ CPC (Cost Per Click)'}</span>
+            <span className={campaignData.type === 'CPM' ? 'text-blue-400' : 'text-green-400'}>
+              {campaignData.type === 'CPM' ? '💰 CPM (Cost Per 1000 Impressions)' : '🎯 CPC (Cost Per Click)'}
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Target URL:</span>
@@ -73,11 +75,11 @@ const Step3Review = ({ campaignData, onBack, onLaunch }) => {
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Budget:</span>
-            <span>${totalBudget.toFixed(2)} USDC</span>
+            <span className="text-green-400">${totalBudget.toFixed(2)} USDC</span>
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Rate:</span>
-            <span>${campaignData.ratePerAction} per {campaignData.type === 'CPM' ? '1000 impressions' : 'click'}</span>
+            <span className="text-purple-400">${campaignData.ratePerAction} per {campaignData.type === 'CPM' ? '1000 impressions' : 'click'}</span>
           </div>
         </div>
       </div>
@@ -92,20 +94,20 @@ const Step3Review = ({ campaignData, onBack, onLaunch }) => {
           {campaignData.type === 'CPM' && (
             <div className="flex justify-between">
               <span className="text-vintage-gray-600">Estimated Impressions:</span>
-              <span>~{estimates.impressions} views</span>
+              <span className="text-blue-400">~{estimates.impressions} views</span>
             </div>
           )}
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Estimated Clicks:</span>
-            <span>~{estimates.clicks} clicks {campaignData.type === 'CPM' && '(2% CTR)'}</span>
+            <span className="text-purple-400">~{estimates.clicks} clicks {campaignData.type === 'CPM' && '(2% CTR)'}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Estimated Duration:</span>
-            <span>5-7 days</span>
+            <span className="text-yellow-400">5-7 days</span>
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Cost Per Click:</span>
-            <span>~${estimates.cpc}</span>
+            <span className="text-green-400">~${estimates.cpc}</span>
           </div>
         </div>
       </div>
@@ -139,21 +141,21 @@ const Step3Review = ({ campaignData, onBack, onLaunch }) => {
         <div className="space-y-3 font-mono text-sm">
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Campaign Budget:</span>
-            <span>${totalBudget.toFixed(2)} USDC</span>
+            <span className="text-green-400">${totalBudget.toFixed(2)} USDC</span>
           </div>
           <div className="flex justify-between">
             <span className="text-vintage-gray-600">Platform Fee (5%):</span>
-            <span>${platformFee.toFixed(2)} USDC</span>
+            <span className="text-yellow-400">${platformFee.toFixed(2)} USDC</span>
           </div>
           <div className="border-t border-vintage-gray-400 pt-3 mt-3">
             <div className="flex justify-between text-lg font-bold">
               <span>Total to Approve:</span>
-              <span>${totalCost.toFixed(2)} USDC</span>
+              <span className="text-blue-400">${totalCost.toFixed(2)} USDC</span>
             </div>
           </div>
           <div className="flex justify-between mt-4">
             <span className="text-vintage-gray-600">Your Wallet Balance:</span>
-            <span>$342.00 USDC <span className="text-vintage-white">✓ Sufficient</span></span>
+            <span className="text-green-400">$342.00 USDC <span className="text-green-400">✓ Sufficient</span></span>
           </div>
         </div>
       </div>

@@ -4,11 +4,27 @@ import { Link } from 'react-router-dom';
 const CampaignRow = ({ campaign }) => {
   const [showMenu, setShowMenu] = useState(false);
 
+  const getStatusColor = () => {
+    switch (campaign.status) {
+      case 'ACTIVE': return 'text-green-400 border-green-400';
+      case 'PAUSED': return 'text-yellow-400 border-yellow-400';
+      case 'COMPLETED': return 'text-gray-400 border-gray-400';
+      case 'OUT_OF_BUDGET': return 'text-red-400 border-red-400';
+      default: return 'text-vintage-gray-600 border-vintage-gray-400';
+    }
+  };
+
+  const getProgressBarColor = () => {
+    if (campaign.progress > 90) return 'bg-red-500';
+    if (campaign.progress > 75) return 'bg-yellow-500';
+    return 'bg-green-500';
+  };
+
   return (
     <div className="p-5 border-b border-vintage-gray-300 relative hover:bg-vintage-gray-200 transition-colors">
       <div className="flex items-start gap-4">
         {/* Campaign Icon */}
-        <div className="text-2xl">□</div>
+        <div className="text-2xl">🖼️</div>
 
         {/* Campaign Info */}
         <div className="flex-1">
@@ -24,8 +40,8 @@ const CampaignRow = ({ campaign }) => {
               {campaign.type}
             </span>
 
-            <span className="font-mono text-xs text-vintage-gray-600 uppercase">
-              {campaign.status}
+            <span className={`font-mono text-xs uppercase tracking-wider px-2 py-1 border ${getStatusColor()}`}>
+              ● {campaign.status}
             </span>
           </div>
 
@@ -33,23 +49,23 @@ const CampaignRow = ({ campaign }) => {
           <div className="mb-2">
             <div className="w-full h-2 border border-vintage-gray-400 mb-1">
               <div
-                className="h-full bg-vintage-white transition-all"
+                className={`h-full ${getProgressBarColor()} transition-all`}
                 style={{ width: `${campaign.progress}%` }}
               />
             </div>
-            <span className="font-mono text-xs text-vintage-gray-600">{campaign.progress}%</span>
+            <span className="font-mono text-xs text-vintage-gray-600">{campaign.progress}% spent</span>
           </div>
 
           {/* Metrics */}
           <div className="font-mono text-xs text-vintage-gray-600">
-            {campaign.metrics} · CTR: {campaign.ctr} · {campaign.created}
+            {campaign.metrics} · <span className="text-blue-400">CTR: {campaign.ctr}</span> · {campaign.created}
           </div>
         </div>
 
         {/* Spent/Budget */}
         <div className="text-right min-w-[120px]">
           <div className="font-mono text-sm">
-            ${campaign.spent.toFixed(2)} / ${campaign.budget.toFixed(2)}
+            <span className="text-green-400">${campaign.spent.toFixed(2)}</span> / ${campaign.budget.toFixed(2)}
           </div>
         </div>
 

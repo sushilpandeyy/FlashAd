@@ -3,32 +3,36 @@ import SummaryCard from './SummaryCard';
 const SummaryCards = () => {
   const summaryData = [
     {
-      icon: '$',
+      icon: '💰',
       label: 'Total Spend',
-      value: '1,247.50',
+      value: '$1,247.50',
       trend: 12,
-      trendText: '12% vs last month'
+      trendText: '12% vs last month',
+      color: 'green'
     },
     {
-      icon: '◉',
+      icon: '👁️',
       label: 'Impressions',
       value: '624,000',
       trend: 8,
-      trendText: '8% vs last week'
+      trendText: '8% vs last week',
+      color: 'blue'
     },
     {
-      icon: '↗',
+      icon: '🖱️',
       label: 'Total Clicks',
       value: '12,480',
       trend: 15,
-      trendText: '15% vs last week'
+      trendText: '15% vs last week',
+      color: 'purple'
     },
     {
-      icon: '%',
+      icon: '📈',
       label: 'Avg CTR',
-      value: '2.00',
+      value: '2.00%',
       trend: 0.3,
-      trendText: '0.3% better'
+      trendText: '0.3% better',
+      color: 'yellow'
     }
   ];
 

@@ -10,7 +10,7 @@ import TransactionDetails from './pages/TransactionDetails'
 import AdvertiserDashboard from './pages/advertiser/Dashboard'
 import CreateCampaign from './pages/advertiser/CreateCampaign'
 import CampaignDetails from './pages/advertiser/CampaignDetails'
-import CampaignAnalytics from './pages/advertiser/CampaignAnalytics'
+import Analytics from './pages/advertiser/Analytics'
 
 // Publisher Pages
 import PublisherDashboard from './pages/publisher/Dashboard'
@@ -36,7 +36,7 @@ function App() {
         <Route path="/advertiser/dashboard" element={<AdvertiserDashboard />} />
         <Route path="/advertiser/campaigns/new" element={<CreateCampaign />} />
         <Route path="/advertiser/campaigns/:campaignId" element={<CampaignDetails />} />
-        <Route path="/advertiser/campaigns/:campaignId/analytics" element={<CampaignAnalytics />} />
+        <Route path="/advertiser/campaigns/:campaignId/analytics" element={<Analytics />} />
 
         {/* Publisher Routes */}
         <Route path="/publisher/dashboard" element={<PublisherDashboard />} />
